@@ -10,6 +10,8 @@ all the source code is typed by me so that something is different with what is d
 
 I explore what will happen when it comes to `mod some_module;` ; the differnece between `mod` and `use` ; the association between `mod` and `pub`;
 
+[course video](https://www.bilibili.com/video/BV1DN4y1d7jk/)
+
 ## crate 和 package
 
 ``` bash
