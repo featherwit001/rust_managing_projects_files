@@ -32,6 +32,10 @@ cargo new <my_project_name>
 
 一个 package 中可以含有 0 个或者 多个 binary crate, 以 `main.rs` 为根，或者以 `src/bin/second_bin.rs` 或者 `src/bin/third_bin/main.rs` 为根
 
+当一个 package 中，既包含 binary crate 又包含 library crate 时，仅在 binary crate 中，可使用 package name 指代其中唯一的 library crate。
+
+当一个 crate 和 mod 重名时， mod 内容优先被查找。
+
 crate 指代在逻辑上相互关联的一些rust items，这种关联性是编写者制定的，这些items可以提供一些功能。
 
 crate 一直指代同一个东西，但是在程序的不同阶段有不同的形态。可以是源文件，可以是编译结果(compiled artifacts),也可以是在crates.io上分享的crates
@@ -57,6 +61,8 @@ crate tree 的结构取决于源文件的目录结构和 module 结构。而mod 
 
 	 2. 如果 `file.rs` 不是 `main.rs`, `mod.rs`, `lib.rs` 等文件，那么就在 file.rs 的同级目录下，寻找 `file/` 目录, 并在 `file/` 目录中寻找以 `some_module` 为名的模块或者目录.
    处理方法如上两条所示。如果 `file/` 不存在，或者 `file/`中不存在以 `some_module` 为名的模块或者目录, 那么报错，找不到 `some_module` 模块
+
+所以不要使用已经有特殊含义的名字作为 mod 名称，如 main lib mod 等
 
 上述规则很简单，可以画流程图表示。这些规则是我自己根据 rust module 的两种风格，外加自己的测试之后总结出来的。
 
