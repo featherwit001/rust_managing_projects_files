@@ -62,7 +62,7 @@ crate tree 的结构取决于源文件的目录结构和 module 结构。而mod 
 	 2. 如果 `file.rs` 不是 `main.rs`, `mod.rs`, `lib.rs` 等文件，那么就在 file.rs 的同级目录下，寻找 `file/` 目录, 并在 `file/` 目录中寻找以 `some_module` 为名的模块或者目录.
    处理方法如上两条所示。如果 `file/` 不存在，或者 `file/`中不存在以 `some_module` 为名的模块或者目录, 那么报错，找不到 `some_module` 模块
 
-所以不要使用已经有特殊含义的名字作为 mod 名称，如 main lib mod 等
+所以不要使用已经有特殊含义的名字作为 mod 名称，如 main lib mod 以及当前 package 中已经被定义为的 crate 的名称等
 
 上述规则很简单，可以画流程图表示。这些规则是我自己根据 rust module 的两种风格，外加自己的测试之后总结出来的。
 
